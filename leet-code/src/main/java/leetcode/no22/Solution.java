@@ -1,5 +1,6 @@
 package leetcode.no22;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,6 +26,25 @@ import java.util.List;
  */
 public class Solution {
     public List<String> generateParenthesis(int n) {
-        return null;
+        List<String> result = new ArrayList<>();
+        if(n == 0){
+            return result;
+        }
+        help(0, 0, n, "", result);
+        return result;
+    }
+
+    private void help(int left, int right, int count, String tmp, List<String> result) {
+        if ((left + right) == 2 * count) {
+            result.add(tmp);
+            return;
+        }
+        if (left < count) {
+            help(left + 1, right, count, tmp + "(", result);
+        }
+        if (right < count && right < left) {
+            help(left, right + 1, count, tmp + ")", result);
+        }
+
     }
 }
