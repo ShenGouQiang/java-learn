@@ -6,6 +6,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
+ * 验证 InheritableThreadLocal 与  线程池不能共用的问题
+ *
  * @author shengouqiang
  * @date 2020/6/12
  */
@@ -19,7 +21,7 @@ public class Test {
         @Override
         public void run() {
             threadLocal.set("A");
-            ExecutorService executorService = Executors.newFixedThreadPool(10);
+            ExecutorService executorService = Executors.newFixedThreadPool(3);
             for (int i=0;i<100;i++){
                 executorService.submit(new B());
             }
@@ -35,6 +37,7 @@ public class Test {
         @Override
         public void run() {
             System.out.println(Thread.currentThread().getId() + "--->B--->"+ threadLocal.get());
+            threadLocal.remove();
         }
     }
 
