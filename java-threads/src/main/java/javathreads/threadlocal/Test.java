@@ -22,7 +22,7 @@ public class Test {
         public void run() {
             threadLocal.set("A");
             ExecutorService executorService = Executors.newFixedThreadPool(3);
-            for (int i=0;i<100;i++){ori
+            for (int i=0;i<100;i++){
 
                 executorService.submit(new B());
             }
