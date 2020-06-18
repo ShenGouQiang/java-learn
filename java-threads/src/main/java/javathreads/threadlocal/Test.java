@@ -23,6 +23,7 @@ public class Test {
             threadLocal.set("A");
             ExecutorService executorService = Executors.newFixedThreadPool(3);
             for (int i=0;i<100;i++){
+
                 executorService.submit(new B());
             }
             executorService.shutdown();
