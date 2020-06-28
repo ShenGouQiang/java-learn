@@ -2,6 +2,9 @@ package offer.no55;
 
 import org.junit.Test;
 
+import java.util.Queue;
+import java.util.concurrent.LinkedBlockingQueue;
+
 public class Solution {
 
     static class TreeNode {
@@ -59,5 +62,36 @@ public class Solution {
             return 0;
         }
         return Math.max(dfs(root.left), dfs(root.right)) + 1;
+    }
+
+
+    public int maxDepth(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        Queue<TreeNode> queue = new LinkedBlockingQueue<>();
+        queue.add(root);
+        int depth = 0;
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            depth++;
+            for (int i = 0; i < size; i++) {
+                TreeNode temp = queue.poll();
+                if (temp.left != null) {
+                    queue.offer(temp.left);
+                }
+                if (temp.right != null) {
+                    queue.offer(temp.right);
+                }
+            }
+        }
+        return depth;
+    }
+
+    public int maxDepth1(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        return Math.max(maxDepth1(root.left), maxDepth1(root.right)) + 1;
     }
 }
