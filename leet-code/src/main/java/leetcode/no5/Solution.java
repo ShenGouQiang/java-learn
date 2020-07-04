@@ -54,7 +54,7 @@ public class Solution {
             dp[i][i] = true;
         }
         for (int i=1;i<len;i++){
-            for (int j = 0;i<i ;j++){
+            for (int j = 0;j<i ;j++){
                 if(charArray[i] != charArray[j]){
                     dp[i][j] = false;
                 }else{
