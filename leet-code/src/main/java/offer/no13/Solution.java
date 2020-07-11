@@ -1,5 +1,11 @@
 package offer.no13;
 
+import org.junit.Assert;
+import org.junit.Test;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * 剑指 Offer 13. 机器人的运动范围
  * 地上有一个m行n列的方格，从坐标 [0,0] 到坐标 [m-1,n-1] 。
@@ -26,7 +32,58 @@ package offer.no13;
  * @date 2020/6/22
  */
 public class Solution {
+
+    @Test
+    public void testOne() {
+        Assert.assertEquals(3, movingCount(2, 3, 1));
+    }
+
+    @Test
+    public void testTwo() {
+        Assert.assertEquals(1, movingCount(3, 1, 0));
+    }
+
+
     public int movingCount(int m, int n, int k) {
-        return 0;
+        int[][] array = new int[m][n];
+        int count = 1;
+        array[0][0] = 1;
+        Queue<int[]> queue = new LinkedList<>();
+        queue.offer(new int[]{0, 0});
+        while (!queue.isEmpty()) {
+            int[] temp = queue.poll();
+            int tempR = temp[0];
+            int tempC = temp[1];
+            if (tempR + 1 < m && array[tempR + 1][tempC] == 0 && smallerByK(tempR + 1, tempC, k)) {
+                array[tempR + 1][tempC] = 1;
+                count++;
+                queue.offer(new int[]{tempR + 1, tempC});
+            }
+            if (tempC + 1 < n && array[tempR][tempC + 1] == 0 && smallerByK(tempR, tempC + 1, k)) {
+                array[tempR][tempC + 1] = 1;
+                count++;
+                queue.offer(new int[]{tempR, tempC + 1});
+            }
+        }
+        return count;
+    }
+
+    private boolean smallerByK(int m, int n, int k) {
+        int count = 0;
+        while (m != 0 && n != 0) {
+            count += m % 10;
+            count += n % 10;
+            m = m / 10;
+            n = n / 10;
+        }
+        while (m != 0) {
+            count += m % 10;
+            m = m / 10;
+        }
+        while (n != 0) {
+            count += n % 10;
+            n = n / 10;
+        }
+        return count <= k;
     }
 }
