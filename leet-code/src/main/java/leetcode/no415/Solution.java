@@ -7,11 +7,11 @@ public class Solution {
 
     @Test
     public void testOne() {
-        Assert.assertTrue("579".equals(addStrings("123", "456")));
-        Assert.assertTrue("1997".equals(addStrings("998", "999")));
-        Assert.assertTrue("2997".equals(addStrings("1998", "999")));
-        Assert.assertTrue("2997".equals(addStrings("999", "1998")));
-        Assert.assertTrue("1468".equals(addStrings("234", "1234")));
+        Assert.assertEquals("579", addStrings("123", "456"));
+        Assert.assertEquals("1997", addStrings("998", "999"));
+        Assert.assertEquals("2997", addStrings("1998", "999"));
+        Assert.assertEquals("2997", addStrings("999", "1998"));
+        Assert.assertEquals("1468", addStrings("234", "1234"));
     }
 
 
