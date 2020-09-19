@@ -1,10 +1,7 @@
 package offer.no31;
 
-import com.apple.eawt.AppEvent;
 import org.junit.Test;
 
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Stack;
 
 /**

@@ -3,9 +3,7 @@ package mianshi;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * 面试题 08.09. 括号

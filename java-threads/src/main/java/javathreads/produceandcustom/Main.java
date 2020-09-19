@@ -15,18 +15,17 @@ public class Main {
 
     @Test
     public void testOne(){
-        Object obj = new Object();
         List<Integer> container = new ArrayList<>();
         int count =3;
         Thread p1 = new Thread(()->{
             while (true){
-                synchronized (obj){
+                synchronized (container){
                     if(container.size() < count){
                         container.add(new Random().nextInt(100));
-                        obj.notify();
+                        container.notify();
                     }
                     try {
-                        obj.wait();
+                        container.wait();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -35,14 +34,15 @@ public class Main {
         },"p1");
         Thread c1 = new Thread(()->{
             while (true){
-                synchronized (obj){
+                synchronized (container){
                     if(container.size() > 0){
-                        System.out.println(container.get(0));
+                        System.out.println(container.size());
+                        System.out.println(container.size() >= 4);
                         container.remove(0);
-                        obj.notify();
+                        container.notify();
                     }
                     try {
-                        obj.wait();
+                        container.wait();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

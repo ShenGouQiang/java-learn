@@ -2,9 +2,6 @@ package mianshi;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * @author shengouqiang
  * @date 2020/5/27

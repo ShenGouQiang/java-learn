@@ -1,7 +1,6 @@
 package offer.no07;
 
 import org.junit.Test;
-import sun.misc.LRUCache;
 
 public class Solution {
     static class TreeNode {

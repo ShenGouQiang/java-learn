@@ -4,7 +4,6 @@ import org.junit.Assert;
 
 import java.util.Deque;
 import java.util.LinkedList;
-import java.util.Queue;
 
 public class MaxQueue {
 

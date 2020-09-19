@@ -41,14 +41,17 @@ public class MianShi_05 {
         TimeUnit.SECONDS.sleep(4);
 
         new Thread(()->{
+            int count =0;
             for(String c : characterList){
                 synchronized (lock){
                     System.out.println(c);
                     lock.notify();
-                    try {
-                        lock.wait();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                    if(++ count < characterList.size()) {
+                        try {
+                            lock.wait();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
 

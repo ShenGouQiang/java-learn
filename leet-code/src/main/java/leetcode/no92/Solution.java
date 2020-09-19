@@ -1,7 +1,5 @@
 package leetcode.no92;
 
-import org.junit.Test;
-
 public class Solution {
     static class ListNode {
         int val;

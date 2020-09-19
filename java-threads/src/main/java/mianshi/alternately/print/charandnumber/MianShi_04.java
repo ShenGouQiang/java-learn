@@ -26,7 +26,6 @@ public class MianShi_04 {
 
     public static void main(String[] args) throws InterruptedException {
 
-
         t1 = new Thread(()->{
             for (Integer i : numberList){
                 System.out.print(i + "\t");
@@ -36,10 +35,15 @@ public class MianShi_04 {
         });
 
         t2 = new Thread(()->{
+            int count =0;
             for (String c : characterList){
+
                 System.out.println(c);
+                count++;
                 LockSupport.unpark(t1);
-                LockSupport.park();
+                if(count < characterList.size()){
+                    LockSupport.park();
+                }
             }
         });
 

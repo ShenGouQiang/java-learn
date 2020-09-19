@@ -20,9 +20,7 @@ package plugins.leetcode.editor.cn;
 // Related Topics 数组 哈希表
 
 
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 //leetcode submit region begin(Prohibit modification and deletion)

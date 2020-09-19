@@ -1,8 +1,5 @@
 package leetcode.no61;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Solution {
     static class ListNode {
         int val;

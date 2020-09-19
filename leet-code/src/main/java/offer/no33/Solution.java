@@ -2,7 +2,6 @@ package offer.no33;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.springframework.objenesis.SpringObjenesis;
 
 /**
  * @author shengouqiang

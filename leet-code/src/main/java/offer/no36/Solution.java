@@ -2,9 +2,6 @@ package offer.no36;
 
 import org.junit.Test;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class Solution {
     static class Node {
         public int val;
