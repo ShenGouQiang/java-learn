@@ -15,6 +15,7 @@
         <module>data-structure</module>
         <module>springboot-test</module>
         <module>jvm-learn</module>
+        <module>SpringCloud/eureka-demo</module>
     </modules>
 
 </project>
